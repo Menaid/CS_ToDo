@@ -1,6 +1,7 @@
-﻿id, username, password
-1, Menaid, Menaid
-2, Pelle, Pelle
-3, Nisse, Nilsson
-4, Carina, Carinsson
-5, Julia, Juliasson
+﻿id, username, password, post_id
+1,manuel,manuel,1
+1,manuel,manuel,2
+1,manuel,manuel,3
+2,nodehill,pass,4
+2,nodehill,pass,5
+3,Menaid,Focus,6

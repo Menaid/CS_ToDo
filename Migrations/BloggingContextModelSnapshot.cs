@@ -18,16 +18,14 @@ namespace CS_ToDo.Migrations
 
             modelBuilder.Entity("Blog", b =>
                 {
-                    b.Property<int>("BlogId")
+                    b.Property<int?>("BlogId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Url")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("BlogId");
@@ -37,25 +35,23 @@ namespace CS_ToDo.Migrations
 
             modelBuilder.Entity("Post", b =>
                 {
-                    b.Property<int>("PostId")
+                    b.Property<int?>("PostId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("BlogId")
+                    b.Property<int?>("BlogId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Content")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateOnly>("Published_On")
+                    b.Property<DateOnly?>("Published_On")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("PostId");
@@ -69,16 +65,14 @@ namespace CS_ToDo.Migrations
 
             modelBuilder.Entity("User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("UserId");
@@ -90,15 +84,11 @@ namespace CS_ToDo.Migrations
                 {
                     b.HasOne("Blog", "Blog")
                         .WithMany("Posts")
-                        .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BlogId");
 
                     b.HasOne("User", "User")
                         .WithMany("Posts")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Blog");
 
