@@ -11,7 +11,8 @@ public class BloggingContext : DbContext
 
     public BloggingContext()
     {
-        DbPath = "cs.forts-Menaid-Nocic.db";  // Tog bort rader för path som fanns i exemplet och döpte till detta för att spara det lokalt i projekt mappen.
+        var folder = Environment.CurrentDirectory;
+        DbPath = System.IO.Path.Join(folder, "cs.forts-Menaid-Nocic.db"); 
     }
 
     // The following configures EF to create a Sqlite database file in the
